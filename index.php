@@ -1,5 +1,5 @@
 <?php
-#Product classes instances
+#Product class instance.
 class Product{
     protected $brand;
     protected $name;
@@ -16,7 +16,7 @@ class Product{
         $this->price=$price;
     }
 }
-
+#Laptop/single Product
 class Laptop extends Product{
     protected $intel;
     protected $ram;
@@ -34,7 +34,7 @@ class Laptop extends Product{
 $lenovoThinkpad = new Laptop ("Lenovo", "ThinkPad E15", "NOTEBOOK: Lorem ipsum.", 10, 769.90, "i5-1135G7", "8GB", "SSD 256GB");
 var_dump($lenovoThinkpad);
 
-#User classes instance
+#User
 class User{
     protected $name;
     protected $surname;
@@ -54,6 +54,7 @@ class User{
     }
 
 }
+#Premium User
 class PremiumUser extends User {
     protected $username;
     protected $password;
@@ -66,3 +67,22 @@ class PremiumUser extends User {
         $this->discount=$discount;
     }
 }
+
+#Credit card
+class CreditCard {
+    protected $cardNumber;
+    protected $cvv;
+    protected $expDate;
+
+    function __construct(string $cardNumber, int $cvv, string $expDate) {
+        $this->cardNumber = $cardNumber;
+        $this->cvv = $cvv;
+        $this->expDate = $expDate;
+    }
+}
+
+# Test CreditCard class
+$mastercard = new CreditCard("1111-2222-3333-4444", 567, "07/25");
+var_dump($mastercard);
+
+?>
