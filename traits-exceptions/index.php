@@ -108,5 +108,15 @@ class Laptop extends Product{
 }
 
 $lenovoThinkpad = new Laptop ("Lenovo", "ThinkPad E15", "NOTEBOOK: Lorem ipsum.", 769.90, "i5-1135G7", "8GB", "SSD 256GB");
-var_dump($lenovoThinkpad);
+$hp = new Laptop("HP", "PC 15s-fq2003sl Notebook", "NOTEBOOK: Lorem ipsum.", 849.99, "i7-1165G7", "8GB", "SSD 512GB");
+$huawei = new Laptop("HUAWEI", "MateBook 14 Laptop", "Ultrabook DisplayFullView 2K.", 746.83, "Intel i5-10210U", "8GB", "SSD 512GB");
+$lincplus = new Laptop("LincPlus", "P1", "PC Portatile Full HD da 13,3 pollici.", 299.00, "Celeron N4000", "4GB", "SSD 512GB");
 
+$laptops = [
+    $lenovoThinkpad,
+    $hp,
+    $huawei,
+    $lincplus
+];
+
+var_dump($laptops);
