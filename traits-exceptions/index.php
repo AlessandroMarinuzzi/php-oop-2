@@ -10,12 +10,22 @@ Descrizione:
 -invocate il metodo nel quale avete usato l'exception passado al metodo dei valori sbagliati
 -usate il try/catch per gestire il la richiesta e mostrare all'utente un messaggio di errore.
 */
+trait verifyValues{
+    public function setPrice($price){
+        if(!is_float($price)){
+            throw new Exception("The value that's been given is not valid!");
+        }
+        $this->price=$price;
+    }
+} 
+
 
 class Product {
     protected $brand;
     protected $name;
     protected $description;
     protected $price;
+    use verifyValues;
 
     public function __construct(string $brand, string $name, string $description, float $price)
     {
@@ -55,9 +65,9 @@ class Product {
     # /DESCRIPTION
 
     # PRICE
-    public function setPrice($price){
-        $this->price=$price;
-    }
+    // public function setPrice($price){
+    //     $this->price=$price;
+    // }
     public function getPrice(){
         return $this->price;
     }
@@ -118,5 +128,31 @@ $laptops = [
     $huawei,
     $lincplus
 ];
+?>
 
-var_dump($laptops);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php foreach($laptops as $laptop){?>
+        <div class="product_card">
+            <div class="main_info">
+                <h2><?=  $laptop->getBrand(); ?></h2>
+                <h3><?=  $laptop->getName(); ?></h3>
+                <p><?=  $laptop->getDescription(); ?></p>
+                <span><?=  $laptop->getPrice(); ?></span>
+            </div>
+            <div class="details">
+                <span><?=  $laptop->getIntel(); ?></span>
+                <span><?=  $laptop->getRam(); ?></span>
+                <span><?=  $laptop->getSsd(); ?></span>
+            </div>
+        </div>
+    <?php } ?>
+</body>
+</html>
