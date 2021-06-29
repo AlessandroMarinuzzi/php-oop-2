@@ -154,5 +154,11 @@ $laptops = [
             </div>
         </div>
     <?php } ?>
+
+    <?php  try {
+            $laptops[3]->setPrice("ciao!");
+        } catch (Exception $e) {
+            echo "Exception: " . $e->getMessage();
+        } ?>
 </body>
 </html>
