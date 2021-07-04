@@ -35,7 +35,7 @@ class Product {
         $this->price=$price;
     }
 
-    # Below Functions to get Product properties from outside.
+    # Below Functions to get Product protected properties from outside.
 
     # BRAND
     public function setBrand($brand){
@@ -87,7 +87,7 @@ class Laptop extends Product{
         $this->ssd=$ssd;
     }
 
-    # Below Functions to get Product properties from outside.
+    # Below Functions to get Product protected properties from outside.
 
     # INTEL
     public function setIntel($intel){
@@ -117,6 +117,7 @@ class Laptop extends Product{
     # /SSD
 }
 
+// Objects and database.
 $lenovoThinkpad = new Laptop ("Lenovo", "ThinkPad E15", "NOTEBOOK: Lorem ipsum.", 769.90, "i5-1135G7", "RAM 8GB", "SSD 256GB");
 $hp = new Laptop("HP", "PC 15s-fq2003sl Notebook", "NOTEBOOK: Lorem ipsum.", 849.99, "i7-1165G7", "RAM 8GB", "SSD 512GB");
 $huawei = new Laptop("HUAWEI", "MateBook 14 Laptop", "Ultrabook DisplayFullView 2K.", 746.83, "Intel i5-10210U", "RAM 8GB", "SSD 512GB");
@@ -158,7 +159,7 @@ $laptops = [
         <?php } ?>
 
         <?php  try {
-                $laptops[3]->setPrice("ciao!");
+                $laptops[3]->setPrice("Ciao");
             } catch (Exception $e) {
                 echo "Exception: " . $e->getMessage();
             } ?>
